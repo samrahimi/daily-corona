@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  font-weight:bold;
+}
+
+/*
+.limit-width: {
+  width:100%;
+  max-width: 500px !important;
+} */
+
+ion-col {border: solid 1px #eee !important}
+.hscroll {
+  width:100%;
+  overflow-y: auto;
+}
+.min-500 {
+  min-width:900px !important; 
+  width:100%;
+}
+.darkred {color:#cc0000 !important}
+
+

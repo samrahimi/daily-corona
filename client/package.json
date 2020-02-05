@@ -1,0 +1,27 @@
+{
+  "name": "daily-corona",
+  "private": true,
+  "version": "0.0.1",
+  "description": "censorship-proof coronavirus data storage in the blockchain, and a web client for browsing the data!",
+  "license": "MIT",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watch",
+    "generate": "stencil generate"
+  },
+  "dependencies": {
+    "@ionic/core": "^4.11.7",
+    "arql-ops": "^1.0.0",
+    "arweave": "^1.6.0",
+    "rxjs": "^6.5.4"
+  },
+  "devDependencies": {
+    "@stencil/core": "^1.8.4",
+    "rollup-plugin-node-polyfills": "^0.2.1"
+  }
+}

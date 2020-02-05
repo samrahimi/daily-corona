@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+.hscroll {
+  width:100%;
+  overflow-y: auto;
+}
+.min-500 {
+  min-width:900px !important; 
+  width:100%;
+}
+.darkred {color:#cc0000 !important}
