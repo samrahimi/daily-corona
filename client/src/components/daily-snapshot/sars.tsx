@@ -109,8 +109,13 @@ export class SarsGraph {
     return ([
     <ion-header>
       <ion-toolbar color="primary">
-        <ion-title>Coronavirus Global Summary for {this.selectedDate}</ion-title>
+        <ion-title>Coronavirus Global Summary</ion-title>
+        <ion-buttons slot="end"><ion-button href="/data/about"><ion-icon slot="icon-only" name="information-circle"></ion-icon></ion-button></ion-buttons>
       </ion-toolbar>
+      <ion-toolbar>
+        <ion-title>Date {this.selectedDate}</ion-title>
+      </ion-toolbar>
+
     </ion-header>,
 
     <ion-content class="ion-padding">
@@ -118,10 +123,7 @@ export class SarsGraph {
       out by region. You can skip to another date by using the dropdown, sort by clicking 
       the column headers, or view the history of the outbreak in any region by clicking on it.</p>
       
-      <p>First time here? <ion-router-link href="/data/about">Please read our thoughts on the reliability of this data!</ion-router-link></p>
-      <p>
-        Please follow me on Twitter! <a target="_blank" href="https://twitter.com/2020writein">@2020WriteIn</a>
-      </p>
+      <p>First time here? <ion-router-link href="/data/about">Please read the info!</ion-router-link></p>
 
       <div class="hscroll">
       <div class="min-500">

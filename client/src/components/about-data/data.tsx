@@ -15,11 +15,70 @@ export class Data {
           <ion-buttons slot="start">
             <ion-back-button defaultHref="/" />
           </ion-buttons>
-          <ion-title>Data Quality Statement</ion-title>
+          <ion-title>About The Data</ion-title>
         </ion-toolbar>
       </ion-header>
       ,
       <ion-content class="ion-padding">
+              <h3>Support Our Efforts</h3>
+
+              <p><b class="darkred">If you find this service useful, and/or believe that we are doing something that 
+              is important and beneficial to humanity, PLEASE make a confidential, secure donation to one of the 
+              addresses below. Your contribution will make a huge difference in ensuring that this project moves 
+              forward at a rapid pace, and that I am able to continue working full-time on this and other projects, 
+              projects which have the potential to make a direct impact on the course that this outbreak will take in the 
+              critical weeks ahead</b></p> 
+
+              <b>ETH and Tokens: 0x71dfD8f3664a6c9925D4275169721e1a0f4281fc</b><br />
+              <b>BTC and Fiat currencies, contact me on Twitter below </b>
+
+              <p>
+              Whether or not you can make a donation, you have a critical role to play in what is shaping up to be a pivotal moment in human history! 
+              This is not like a tsunami that causes devastation somewhere far away;
+              it is more like an asteroid hurtling towards Earth, while we frantically try and knock it off its collision course. 
+
+              <br /><br />
+              <i>MIGHT</i> the novel corona virus cause a pandemic that costs 10 million or even 100 million human lives? YES.<br /> <br />
+              <i>WILL</i> it? MAYBE! BUT WE CAN STOP THIS THING! If you remember the video game, "Plague, Inc" this is kind of like that - 
+              except this time, you are one of the humans, playing against a virus that has many tricks up its sleeve. And you're playing for keeps.<br /><br />
+              
+              The single most remarkable thing about our species, 
+              <i>homo sapiens</i>, is the degree to which we are able to alter our environment - that is why we are able to survive in 
+              every possible climate region on Earth, despite lacking fur to keep warm, or claws and teeth for hunting prey. While our continued 
+              destruction of our natural environment and ability to make other species go extinct is generally a bad thing, 
+              today I am very grateful to be a human. For we most certainly have the ability, collectively, to make decisions that 
+              protect each and every one of us as individuals - and also create a hostile environment for this awful virus, 
+              so much that we can actually cause it to become extinct!
+              <br /><br /> 
+              We did it with smallpox (by co-ordinating between countries on a massive scale to vaccinate strategically). We have *massively* reduced HIV 
+              transmission through behavioral changes (condom use), and in developed countries we can prevent those infected from developing the disease 
+              of AIDS (antiviral medications). And we managed to stop the deadliest virus in the word, Ebola, from becoming a pandemic or even a widespread 
+              regional *epidemic*, many times over: since 1976 when it emerged, the virus killed fewer than 20,000 people over multiple outbreaks, 
+              which remained localized and relatively small. Why? Because teams of doctors and public health experts from all over the world were able to gain the trust of the affected 
+              populations, and communicate their knowledge about how the disease was transmitted. This was in the face of fierce resistance from folks who had 
+              little reason to trust Westerners, and aggravated by instability and war, but they succeeded (it is also said that without these issues, the epidemics 
+              would have been controlled much sooner than they were).
+              <br /><br />
+              In other words: when humans communicate and co-operate across cultures, beliefs, and national boundaries, we are fully capable of victory against the worst diseases imaginable. 
+              But it is far from clear that we are on the right track with the coronavirus; there are very significant political barriers, language barriers, cultural barriers we must overcome. 
+              And the only way we will overcome it is when all of us are able to communicate with each other, freely, even when powerful interests collude 
+              to censor real and important information about the virus and how it has spread. 
+              </p>
+
+              <p>Therefore, the Daily Corona project has been designed from the start to allow information to be exchanged safely and openly; 
+                all of the data is stored permanently on a blockchain platform, <a href="https://arweave.net">The Arweave</a> that provides a highly censorship resistant data 
+                source that anyone, anywhere, can access free of charge in their web browser. Right now, the raw data in the archive is what's 
+                been released by "official" sources, which may or may not be honest. That is why the next version of this app will 
+                provide a completely secure and anonymous means for *anyone* in the world to contribute critically important information, anonymously, 
+                and for anyone else to access it, firewalls and filters be damned!
+              </p>
+
+              <p>
+              I hope that you will join me in this effort, and that you will contribute whatever resources you can to the fight against 
+              2019-nCoV. Financial contributions are the least of it - we all have our own unique skills, interests, 
+              and social connections, and there are things we can all do to help out. Please follow me and receive updates <a href="https://twitter.com/2020writein">@2020WriteIn</a>, and I look forward to working with you! 
+              </p>
+
         <h3>Are These Numbers Accurate?</h3>
         <p><b>Important!</b> Unlike most of the data you find on the Internet, which has social or economic value 
         but is not immediately actionable, the data you find here is not to be taken lightly. <br /><br />
@@ -75,39 +134,13 @@ export class Data {
         by any specific country. That said, it appears the data is following plausible trends - so it is definitely worth 
         studying and analyzing, as long as you remember that the numbers themselves are not necessarily correct!</p>
 
-      <h3>Support Our Efforts</h3>
-
-      <p><b class="darkred">If you find this service useful, and/or believe that we are doing something that 
-      is important and beneficial to humanity, PLEASE make a confidential, secure donation to one of the 
-      addresses below. Your contribution will make a huge difference in ensuring that this project moves 
-      forward at a rapid pace, and that I am able to continue working full-time on this and other projects, 
-      projects which have the potential to make a direct impact on the course that this outbreak will take in the 
-      critical weeks ahead</b></p> 
-      
-      <b>ETH and Tokens: 0x71dfD8f3664a6c9925D4275169721e1a0f4281fc</b><br />
-      <b>BTC / other currencies, please DM me on Twitter</b>
-
-      <p>
-      Whatever your ability to contribute financially, I hope you join the fight against the coronavirus and help out 
-      with this project, in whatever way you are most capable! This is not like a tsunami that causes devastation somewhere far away, 
-      it is more like an asteroid hurtling towards Earth, and we must do everything that we can to knock it off course. 
-    
-<br /><br />
-      <i>MIGHT</i> this become a pandemic that costs 10 million or even 100 million human lives? YES.<br /> 
-      <i>WILL</i> it? MAYBE! But not if the whole world works together to stop this thing!
-      <br /><br />
-      To reach this goal, sharing and seeking the TRUTH is a critical step in the right direciton.
-      </p>
-
-      <p>
-      Please follow me on Twitter! <a href="https://twitter.com/2020writein">@2020WriteIn</a>
-      </p>
 
         <p>
         Sincerely,<br />
         Sam Rahimi<br />
-        Chief Engineer and Product Designer<br />
+        Founder<br />
         The Daily Corona
+        https://github.com/daily-corona
         </p>
       </ion-content>
       ]

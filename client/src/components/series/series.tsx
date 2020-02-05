@@ -158,30 +158,25 @@ export class RegionalTimeSeries {
 
       <h3>Support Our Efforts</h3>
 
-      <p><b class="darkred">If you find this service useful, and/or believe that we are doing something that 
-      is important and beneficial to humanity, PLEASE make a confidential, secure donation to one of the 
-      addresses below. Your contribution will make a huge difference in ensuring that this project moves 
-      forward at a rapid pace, and that I am able to continue working full-time on this and other projects, 
-      projects which have the potential to make a direct impact on the course that this outbreak will take in the 
-      critical weeks ahead</b></p> 
-      
-      <b>ETH and Tokens: 0x71dfD8f3664a6c9925D4275169721e1a0f4281fc</b><br />
-      <b>BTC / other currencies, please DM me on Twitter</b>
 
       <p>
-      Whatever your ability to contribute financially, I hope you join the fight against the coronavirus and help out 
-      with this project, in whatever way you are most capable! This is not like a tsunami that causes devastation somewhere far away, 
-      it is more like an asteroid hurtling towards Earth, and we must do everything that we can to knock it off course. 
-    
-<br /><br />
-      <i>MIGHT</i> this become a pandemic that costs 10 million or even 100 million human lives? YES.<br /> 
-      <i>WILL</i> it? MAYBE! But not if the whole world works together to stop this thing!
-      <br /><br />
-      To reach this goal, sharing and seeking the TRUTH is a critical step in the right direciton.
-      </p>
+            <b class="darkred">If you find this service useful, and/or believe that we are doing something that 
+              is important and beneficial to humanity, PLEASE make a confidential, secure donation to one of the 
+              addresses below. Your contribution will make a huge difference in ensuring that this project moves 
+              forward at a rapid pace, and that I am able to continue working full-time on this and other projects, 
+              projects which have the potential to make a direct impact on the course that this outbreak will take in the 
+              critical weeks ahead</b></p> 
+
+              <b>ETH and Tokens: 0x71dfD8f3664a6c9925D4275169721e1a0f4281fc</b><br />
+              <b>BTC and Fiat currencies, contact me on Twitter below </b>
+
+              <p>
+              Whether or not you can make a donation, you have a critical role to play in what is shaping up to be a pivotal moment in human history! 
+              This is not like a tsunami that causes devastation somewhere far away;
+              it is more like an asteroid hurtling towards Earth, while we frantically try and knock it off its collision course.</p>
 
       <p>
-      Please follow me on Twitter! <a target="_blank" href="https://twitter.com/2020writein">@2020WriteIn</a>
+      Please follow me on Twitter for important news about the epidemic and so that we can work together! <a target="_blank" href="https://twitter.com/2020writein">@2020WriteIn</a>
       </p>
       </ion-content>
     ]
