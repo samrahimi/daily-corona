@@ -108,13 +108,15 @@ export class ArweaveService {
         equals('API_VERSION', environment.API_VERSION)
       )
     }
-    const txids = await this.arweaveSdk.arql(query)
+    var txids = await this.arweaveSdk.arql(query)
     console.log("step 1: get all transaction ids tagged with AR_COLLECTION_ID == "+collectionId)
     console.log(JSON.stringify(txids))
     
     //todo: use DATE as unique key if desired, and de-dupe
     
     console.log("step 2: each transaction points to an element's contents - retrieve it and insert into our array")
+    if (txids.length > 100)
+      txids = txids.slice(0,100) //todo: make parameter
     for (var i =0; i < txids.length; i++) {
           //utility funciton to get the data and tags corresponding to an arweave transaction
           var txid = txids[i]

@@ -16,6 +16,7 @@ export namespace Components {
   interface TimeSeries {
     'region': string;
   }
+  interface WeiboViewer {}
 }
 
 declare global {
@@ -44,11 +45,18 @@ declare global {
     prototype: HTMLTimeSeriesElement;
     new (): HTMLTimeSeriesElement;
   };
+
+  interface HTMLWeiboViewerElement extends Components.WeiboViewer, HTMLStencilElement {}
+  var HTMLWeiboViewerElement: {
+    prototype: HTMLWeiboViewerElement;
+    new (): HTMLWeiboViewerElement;
+  };
   interface HTMLElementTagNameMap {
     'about-data': HTMLAboutDataElement;
     'app-root': HTMLAppRootElement;
     'daily-snapshot': HTMLDailySnapshotElement;
     'time-series': HTMLTimeSeriesElement;
+    'weibo-viewer': HTMLWeiboViewerElement;
   }
 }
 
@@ -59,12 +67,14 @@ declare namespace LocalJSX {
   interface TimeSeries {
     'region'?: string;
   }
+  interface WeiboViewer {}
 
   interface IntrinsicElements {
     'about-data': AboutData;
     'app-root': AppRoot;
     'daily-snapshot': DailySnapshot;
     'time-series': TimeSeries;
+    'weibo-viewer': WeiboViewer;
   }
 }
 
@@ -78,6 +88,7 @@ declare module "@stencil/core" {
       'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
       'daily-snapshot': LocalJSX.DailySnapshot & JSXBase.HTMLAttributes<HTMLDailySnapshotElement>;
       'time-series': LocalJSX.TimeSeries & JSXBase.HTMLAttributes<HTMLTimeSeriesElement>;
+      'weibo-viewer': LocalJSX.WeiboViewer & JSXBase.HTMLAttributes<HTMLWeiboViewerElement>;
     }
   }
 }

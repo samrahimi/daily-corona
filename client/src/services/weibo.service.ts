@@ -22,6 +22,8 @@ class WeiboServiceController {
   public hashtags = []
   public hashtags$ = new BehaviorSubject<any>([])
 
+  public hashtagtxids = []
+  
   public posts = []
   public posts$ = new BehaviorSubject<any>([])
 
