@@ -109,6 +109,7 @@ export class SarsGraph {
     return ([
     <ion-header>
       <ion-toolbar color="primary">
+        <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
         <ion-title>Coronavirus Global Summary</ion-title>
         <ion-buttons slot="end"><ion-button href="/data/about"><ion-icon slot="icon-only" name="information-circle"></ion-icon></ion-button></ion-buttons>
       </ion-toolbar>

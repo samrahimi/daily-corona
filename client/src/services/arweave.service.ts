@@ -90,14 +90,24 @@ export class ArweaveService {
     return element
   }
 
-  async getCollection(collectionId) {
+  async getCollection(collectionId, customTags?) {
     var results = []
-    const query = and(
-      equals('AR_APP_ID', environment.AR_APP_ID),
-      equals('AR_COLLECTION_ID', collectionId),
-      equals('API_VERSION', environment.API_VERSION)
-    )
 
+    var query;
+    
+    if (customTags) {
+      query = and(
+      equals(customTags.appName.tag, customTags.appName.value),
+      equals(customTags.version.tag, customTags.version.value),
+      equals(customTags.collection.tag, customTags.collection.value),
+      )
+    } else {
+      query = and(
+        equals('AR_APP_ID', environment.AR_APP_ID),
+        equals('AR_COLLECTION_ID', collectionId),
+        equals('API_VERSION', environment.API_VERSION)
+      )
+    }
     const txids = await this.arweaveSdk.arql(query)
     console.log("step 1: get all transaction ids tagged with AR_COLLECTION_ID == "+collectionId)
     console.log(JSON.stringify(txids))
