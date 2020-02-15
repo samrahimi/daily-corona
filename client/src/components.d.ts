@@ -16,7 +16,12 @@ export namespace Components {
   interface TimeSeries {
     'region': string;
   }
-  interface WeiboViewer {}
+  interface WeiboPosts {
+    'searchTxId': string;
+  }
+  interface WeiboViewer {
+    'currentSearchTxid': string;
+  }
 }
 
 declare global {
@@ -46,6 +51,12 @@ declare global {
     new (): HTMLTimeSeriesElement;
   };
 
+  interface HTMLWeiboPostsElement extends Components.WeiboPosts, HTMLStencilElement {}
+  var HTMLWeiboPostsElement: {
+    prototype: HTMLWeiboPostsElement;
+    new (): HTMLWeiboPostsElement;
+  };
+
   interface HTMLWeiboViewerElement extends Components.WeiboViewer, HTMLStencilElement {}
   var HTMLWeiboViewerElement: {
     prototype: HTMLWeiboViewerElement;
@@ -56,6 +67,7 @@ declare global {
     'app-root': HTMLAppRootElement;
     'daily-snapshot': HTMLDailySnapshotElement;
     'time-series': HTMLTimeSeriesElement;
+    'weibo-posts': HTMLWeiboPostsElement;
     'weibo-viewer': HTMLWeiboViewerElement;
   }
 }
@@ -67,13 +79,19 @@ declare namespace LocalJSX {
   interface TimeSeries {
     'region'?: string;
   }
-  interface WeiboViewer {}
+  interface WeiboPosts {
+    'searchTxId'?: string;
+  }
+  interface WeiboViewer {
+    'currentSearchTxid'?: string;
+  }
 
   interface IntrinsicElements {
     'about-data': AboutData;
     'app-root': AppRoot;
     'daily-snapshot': DailySnapshot;
     'time-series': TimeSeries;
+    'weibo-posts': WeiboPosts;
     'weibo-viewer': WeiboViewer;
   }
 }
@@ -88,6 +106,7 @@ declare module "@stencil/core" {
       'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
       'daily-snapshot': LocalJSX.DailySnapshot & JSXBase.HTMLAttributes<HTMLDailySnapshotElement>;
       'time-series': LocalJSX.TimeSeries & JSXBase.HTMLAttributes<HTMLTimeSeriesElement>;
+      'weibo-posts': LocalJSX.WeiboPosts & JSXBase.HTMLAttributes<HTMLWeiboPostsElement>;
       'weibo-viewer': LocalJSX.WeiboViewer & JSXBase.HTMLAttributes<HTMLWeiboViewerElement>;
     }
   }

@@ -9,6 +9,7 @@ import {WeiboService} from '../../services/weibo.service';
 export class WeiboViewer {
   @State() posts = []
   @State() hashtags = []
+  @Prop() currentSearchTxid = ''
 
   componentDidLoad() {
     /*
@@ -33,6 +34,13 @@ export class WeiboViewer {
     });
     WeiboService.getHashtags(0, 50)
 
+    WeiboService.posts$.subscribe((postsForHashtag) => {
+      this.posts = postsForHashtag;
+      console.log("gots posts")
+    })
+
+    
+
   }
   render() {
     return ([
@@ -48,8 +56,7 @@ export class WeiboViewer {
       <ion-content class="ion-padding">
         <h3>Archived Weibo Tags</h3>
         <p>
-           This dataset, maintained by the folks at Arweave, is an archive of Weibo posts and popular hashtags. 
-           Right now you can see the top 100 tags, and tomorrow you will be able to click on the tags to view the associated content. Note that the data below may take a moment to load...
+           Please wait a moment while we retrieve the list of Weibo hashtags. Click on any hashtag below to view posts and images
         </p> 
       <div class="chinese-text">
       <ion-grid>
@@ -65,8 +72,8 @@ export class WeiboViewer {
                 return (                
                   <ion-row>
                     <ion-col size="4">
-                      <ion-router-link href={"/weibo-archive/query/"+tag.txid}>
-                          {tag.query}
+                      <ion-router-link href={`weibo-viewer/${tag.txid}/posts`}>
+                      {tag.query}
                       </ion-router-link>
                       </ion-col>
                     <ion-col size="4">{tag.reads}</ion-col>

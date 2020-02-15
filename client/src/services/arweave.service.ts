@@ -77,6 +77,24 @@ export class ArweaveService {
     }
   }
 
+  //returns the tx as is, no decoding
+  async getItemRaw(txid) {
+    var tx = await this.arweaveSdk.transactions.get(txid)
+    var rawData = tx.get('data', {decode: true})
+    //get and parse the tags,
+    var tags = {}
+
+    tx.get('tags').forEach(tag => {
+      let key = tag.get('name', {decode: true, string: true});
+      let value = tag.get('value', {decode: true, string: true});
+      console.log(`${key} : ${value}`);
+      tags[key]=value
+    });
+
+    var element = {id: txid, data: rawData, tags: tags}
+    return element
+  }
+
   async getItemByTxId(txid) {
     //utility funciton to get the data and tags corresponding to an arweave transaction
     var tx = await this.arweaveSdk.transactions.get(txid)

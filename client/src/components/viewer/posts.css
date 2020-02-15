@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+.hscroll {
+  width:100%;
+  overflow-y: auto;
+}
+.min-500 {
+  min-width:900px !important; 
+  width:100%;
+}
+.chinese-text {
+  font-size: 10px;
+}
+.darkred {color:#cc0000 !important}
+.post {
+  padding: 10px; 
+  margin: 10px;
+  border-bottom: solid 1px #ccc
+}
+.post a {
+  font-weight: bold;
+  font-size: 11px;
+  text-decoration:none;
+}

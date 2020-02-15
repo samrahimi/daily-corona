@@ -22,13 +22,6 @@ export class AppRoot {
             <ion-label>Epidemic Statistics</ion-label>
           </ion-item>
           <ion-item>
-            <ion-icon name="megaphone" slot="start"></ion-icon>
-            <ion-router-link href={"/twitter-feed/"}>
-
-            <ion-label>Social Feed (From Twitter)</ion-label>
-            </ion-router-link>
-          </ion-item>
-          <ion-item>
               <ion-icon name="albums" slot="start"></ion-icon>
               <ion-router-link href={"/weibo-viewer/"}>
 
@@ -58,6 +51,8 @@ export class AppRoot {
           <ion-route url="/time-series/global/:name" component="time-series" />
 
           <ion-route url="/weibo-viewer" component="weibo-viewer" />
+          <ion-route url="/weibo-viewer/:searchTxId/posts" component="weibo-posts" />
+
           <ion-route url="/twitter-feed" component="social-feed"></ion-route>
           <ion-route url="/data/about" component="about-data" />
           <ion-route url="/data/download" component="download-data" />
