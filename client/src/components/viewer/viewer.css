@@ -9,4 +9,7 @@
   min-width:900px !important; 
   width:100%;
 }
+.chinese-text {
+  font-size: 10px;
+}
 .darkred {color:#cc0000 !important}

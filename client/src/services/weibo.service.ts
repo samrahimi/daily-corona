@@ -22,8 +22,9 @@ class WeiboServiceController {
   public hashtags = []
   public hashtags$ = new BehaviorSubject<any>([])
 
-  public hashtagtxids = []
-  
+  private hashtagtxids = []
+  private postTxids = []
+
   public posts = []
   public posts$ = new BehaviorSubject<any>([])
 
@@ -34,27 +35,39 @@ class WeiboServiceController {
   constructor() {
   }
 
-  //the searchTxId contains a search type and a search value (i.e. a hashtag)
-  async getAllImagePosts() {
-    var customTags = {
-      appName: {tag:"App-Name", value: "weibot-search-weibs"},
-      version: {tag: "App-Version", value: "0.1.0"},
-      collection: {tag: "Content-Type", value: "image/png"}
-    }
-    this.posts = await this.arweaveService.getCollection(null, customTags)
-    this.posts$.next(this.posts)
+  //searchtxid is the id of, for example, a hashtag in the hashtags[] array
+  async getPostsBySearchTxid(txid, offset, limit) {
+    var customTags = [
+      {name:"App-Name", value: "weibot-search-weibs"},
+      {name: "App-Version", value: "0.1.0"},
+      {name: "Search-Tx", value: txid}
+    ]
+    this.postTxids = await this.arweaveService.getTransactionsByTags(customTags)
 
+    var txToRetrieve = this.postTxids.slice(offset, limit)
+    this.hashtags = []
+    for (var i =0; i< txToRetrieve.length; i++) {
+      var tx = await this.arweaveService.getItemByTxId(txToRetrieve[i])
+      this.posts.push(tx)
+    }
+    this.posts$.next(this.posts)
   }
 
-  async getHashtags() {
-    var customTags = {
-      appName: {tag:"App-Name", value: "weibot-search"},
-      version: {tag: "App-Version", value: "0.1.0"},
-      collection: {tag: "Search-Type", value: "hashtag"}
-    }
+  async getHashtags(offset, limit) {
+      var searchTags = [
+        {name:"App-Name", value: "weibot-search"},
+        {name: "App-Version", value: "0.1.0"},
+        {name: "Search-Type", value: "hashtag"}
+      ]
+      this.hashtagtxids = await this.arweaveService.getTransactionsByTags(searchTags)
 
-    this.hashtags = await this.arweaveService.getCollection(null, customTags)
-    this.hashtags$.next(this.hashtags)
+      var txToRetrieve = this.hashtagtxids.slice(offset, limit)
+      this.hashtags = []
+      for (var i =0; i< txToRetrieve.length; i++) {
+        var tx = await this.arweaveService.getItemByTxId(txToRetrieve[i])
+        this.hashtags.push(tx)
+      }
+      this.hashtags$.next(this.hashtags)
   }
 }
 

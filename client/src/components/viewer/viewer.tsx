@@ -25,13 +25,13 @@ export class WeiboViewer {
           reads: hashtag.data.reads, 
           discuss: hashtag.data.discuss, 
           query: hashtag.tags["Search-Query"],
-          txid: hashtag.tags["txid"]
+          txid: hashtag.id
         }
       })
 
       this.hashtags = [...hashes]
     });
-    WeiboService.getHashtags()
+    WeiboService.getHashtags(0, 50)
 
   }
   render() {
@@ -51,7 +51,7 @@ export class WeiboViewer {
            This dataset, maintained by the folks at Arweave, is an archive of Weibo posts and popular hashtags. 
            Right now you can see the top 100 tags, and tomorrow you will be able to click on the tags to view the associated content. Note that the data below may take a moment to load...
         </p> 
-
+      <div class="chinese-text">
       <ion-grid>
           <ion-row>
             <ion-col size="4"><b>Query</b></ion-col>
@@ -78,6 +78,7 @@ export class WeiboViewer {
           }
 
       </ion-grid>
+      </div>
       </ion-content>     
       ]
     );

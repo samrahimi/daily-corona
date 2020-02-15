@@ -5,7 +5,15 @@ import {environment} from '../helpers/environment';
 import {and, equals} from 'arql-ops'; 
 //import Arweave from '../lib/arweaveSdk.js';
 
+export class Tag {
+  name: any
+  value: any
 
+  constructor(name, value) {
+    this.name = name;
+    this.value = value;
+  }
+}
 export class ArweaveService {
   //the npm module didn't play nice with Angular, so we loaded the bundle version in angular.json scripts[]
   public arweaveSdk = window["Arweave"].init({
@@ -86,8 +94,22 @@ export class ArweaveService {
       tags[key]=value
     });
 
-    var element = {data: rawData, tags: tags}
+    var element = {id: txid, data: rawData, tags: tags}
     return element
+  }
+
+  //like getcollection but allows arbitrary number of tag name / value pairs, 
+  //and only returns txids (which you can then query individually to get the data)
+  async getTransactionsByTags(arrayOfCustomTags) {
+    var query = and(
+      ...arrayOfCustomTags.map(tag => equals(tag.name, tag.value))
+    )
+
+    var txids = await this.arweaveSdk.arql(query)
+    console.log("retrieved "+txids.length+" transaction ids matching your query")
+    //console.log(JSON.stringify(txids))
+
+    return txids
   }
 
   async getCollection(collectionId, customTags?) {
