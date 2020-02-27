@@ -38,6 +38,10 @@ module.exports = {
             console.log(address);
             let dataset = JSON.parse(fs.readFileSync(JSON_DATA, "utf8"))
             dataset.forEach(async(dayOfPestilence) => {
+                dayOfPestilence.forEach(d => {
+
+                    d["lastUpdate"] = (new Date(d["lastUpdate"])).toISOString()
+                })
                 let tx = await arweave.createTransaction({
                     data: JSON.stringify(dayOfPestilence)
                 }, privateKey)

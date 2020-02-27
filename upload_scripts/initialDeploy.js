@@ -4,12 +4,10 @@
 
 var deployer = require('./deploy-archive')
 
-/*
-deployer.uploadArchive("1.0.2",  
+deployer.uploadArchive("1.0.3",  
 "/Users/sam/Downloads/arweave-keyfile-JEsrrfZGLyq7ga7anWGwq41l8EOK91yY_nOB_AtjB3Q.json",
-"../data/0124_0202_regional_data.json"
+"../data/archive-thru-feb-25.json"
 ) 
-*/
 
 //each day afterwards, we wait for the JHU data to be updated 
 //with the latest numbers from China and abroad, then we export 
@@ -17,7 +15,7 @@ deployer.uploadArchive("1.0.2",
 //it only take 5 minutes to do this step, but we should automate
 //the daily updates!
 
-
+/*
 deployer.uploadDay(
     "1.0.2",
     [
@@ -563,3 +561,4 @@ deployer.uploadDay(
     ],
 "/Users/sam/Downloads/arweave-keyfile-JEsrrfZGLyq7ga7anWGwq41l8EOK91yY_nOB_AtjB3Q.json"
 )
+*/
