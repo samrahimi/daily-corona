@@ -1,2 +1,5 @@
-Here's some starter / test data if you're creating your own archive. 
-Otherwise just run the client and it will get you latest snapshots / time series of #COVID19 epedemiology data from John's Hopkins and the WHO
+Set the APP_VERSION, wallet file location, and github credentials in updater.js
+
+Then run that to check for updates to the JHU CSSE coronavirus data
+
+It will download anything new, convert it to JSON, and then uploads it to Arweave

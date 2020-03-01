@@ -1,6 +1,7 @@
 //requiring path and fs modules
 const path = require('path');
 const fs = require('fs');
+const uuid = require('uuid');
 const CSV = require('csv-parser')
 const { Readable } = require('stream')
 class ReadableString extends Readable {
@@ -22,19 +23,15 @@ class ReadableString extends Readable {
     }
   }
   
-//joining path of directory 
-const directoryPath = './csv'
-//passsing directoryPath and callback function
+//location of files downloaded by getLatestCaseData 
 var suffix = "T23:00:00.000Z"
 var allData = []
-fs.readdir(directoryPath, function (err, files) {
-    //handling error
-    if (err) {
-        return console.log('Unable to scan directory: ' + err);
-    } 
-    //listing all files using forEach
+const csvPath = "./csv"
+
+module.exports = {
+  convertToJson: (files, onComplete) => {
+        //iterate over the CSV data files in our source folder
     files.forEach(function (file) {
-        // Do whatever you want to do with the file
         /*
         console.log(file); 
         var csv = fs.readFileSync(directoryPath+'/'+file).toString()
@@ -48,20 +45,25 @@ fs.readdir(directoryPath, function (err, files) {
 
         var day = []
 
-        fs.createReadStream(directoryPath+'/'+file)
-        .pipe(CSV())
+        //spawn an asynchronous operation to parse each file
+        //replacing the header names with our own
+        fs.createReadStream(csvPath+"/"+file)
+        .pipe(CSV({
+          headers: ["provincestate", "countryregion", "lastUpdate", "confirmed", "deaths", "recovered"],
+          skipLines: 1
+        }))
         .on('data', (data) => day.push(data))
         .on('end', () => {
-          console.log(day);
-          // [
-          //   { NAME: 'Daffy Duck', AGE: '24' },
-          //   { NAME: 'Bugs Bunny', AGE: '22' }
-          // ]
+          console.log("Parse "+file+" complete");
           allData.push(day)
+
+          //if we have processed all of the files, write the concatenated dataset
           if (allData.length == files.length) {
-            console.log("done, writing")
-            fs.writeFileSync('./archive-thru-feb-25.json', JSON.stringify(allData, null, 2))
-        
+            console.log("done, writing json")
+            var fname = './covid-19-data-'+uuid.v4()
+
+            fs.writeFileSync(fname, JSON.stringify(allData, null, 2))
+            onComplete(allData, fname)
           }
         });
         
@@ -87,4 +89,6 @@ fs.readdir(directoryPath, function (err, files) {
         allData.push(day)
         */
     });
-});
+
+  }
+}

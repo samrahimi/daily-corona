@@ -1,13 +1,39 @@
-//right now this is a manual process
-//export the google sheets project from JHU as JSON
-//then run uploadArchive to publish the historical data, day by day
+//PURPOSE: updates the coronavirus data archive with the latest datasets
+//USAGE: set the wallet path, and set your gh credentials in getLatestCaseData
+//then, run this every 24 hours
 
-var deployer = require('./deploy-archive')
+const APP_VERSION = "1.1.0"
+const walletPath = "/Users/sam/Downloads/arweave-keyfile-JEsrrfZGLyq7ga7anWGwq41l8EOK91yY_nOB_AtjB3Q.json"
 
+const publisher = require('./arweavePublisher')
+const gitter = require('./getLatestCaseData')
+const parser = require('./csv2json')
+
+//any valid github username and password, for authenticating your API requests
+const ghUsername=""
+const ghPassword = ""
+
+gitter.updateFromGithub(ghUsername, ghPassword).then(newFiles => {
+    if (newFiles.length == 0) {
+        console.log("no updates to publish")
+        return
+    }
+    parser.convertToJson(newFiles, (data, filename) => {
+        console.log(JSON.stringify(data))
+        publisher.uploadArchive(APP_VERSION, walletPath, filename)
+
+        /*
+        json.forEach(dayOfData => {
+            publisher.uploadArchive(APP_VERSION, walletPath, dayOfData)
+        })*/
+    })
+})
+
+/*
 deployer.uploadArchive("1.0.3",  
 "/Users/sam/Downloads/arweave-keyfile-JEsrrfZGLyq7ga7anWGwq41l8EOK91yY_nOB_AtjB3Q.json",
 "../data/archive-thru-feb-25.json"
-) 
+) */
 
 //each day afterwards, we wait for the JHU data to be updated 
 //with the latest numbers from China and abroad, then we export 
