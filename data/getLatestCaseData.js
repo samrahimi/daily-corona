@@ -1,4 +1,6 @@
 //check for updated data from JHU github and download anything new
+//This code would be far more readable IF I USED ASYNC/AWAIT. Learn from my mistake :) 
+
 var getFolderContentsAPI = "https://api.github.com/repos/CSSEGISandData/COVID-19/contents/csse_covid_19_data/csse_covid_19_daily_reports?ref=master"
 var downloadFolder = './csv'
 

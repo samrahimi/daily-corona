@@ -73,8 +73,22 @@ class OutbreakServiceController {
 
   }
   generateRegionalTimeseries() {
+    var uniqueDates = {}
+
     this._timeseriesByDay.forEach(day => {
       var shortdate = day.tags["DATE"]
+
+      //the source data is supposed to be published once per day
+      //but occasionally there are 2 in the same day
+      //we currently handle that case by picking the first dataset from that day and ignoring the rest
+      //it appears that the data provider has fixed things on their end, so these dupes are only 
+      //an issue for certain dates prior to March 2020
+      if (uniqueDates[shortdate]) {
+        return false
+      } else {
+        uniqueDates[shortdate] = true
+      }
+
       day.data.forEach(regionalUpdate => {
         //not all regions have the provincestate
         var region = regionalUpdate["provincestate"] || regionalUpdate["countryregion"]
