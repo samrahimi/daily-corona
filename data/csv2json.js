@@ -49,7 +49,7 @@ module.exports = {
         //replacing the header names with our own
         fs.createReadStream(csvPath+"/"+file)
         .pipe(CSV({
-          headers: ["provincestate", "countryregion", "lastUpdate", "confirmed", "deaths", "recovered"],
+          headers: ["provincestate", "countryregion", "lastUpdate", "confirmed", "deaths", "recovered", "latitude", "longitude"],
           skipLines: 1
         }))
         .on('data', (data) => day.push(data))
