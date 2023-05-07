@@ -17,7 +17,7 @@
   "dependencies": {
     "@ionic/core": "^4.11.10",
     "arql-ops": "^1.0.0",
-    "arweave": "^1.6.0",
+    "arweave": "^1.13.7",
     "rxjs": "^6.5.4"
   },
   "devDependencies": {
